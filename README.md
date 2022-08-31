@@ -29,17 +29,19 @@ Then run pod install.
 #### Android
 
 1. Open up `android/app/src/main/java/[...]/MainApplication.java`
-  - Add `import com.criticalblue.reactnative.CertPinnerPackage;` to the imports at the top of the file
-  - Add `new CertPinnerPackage()` to the list returned by the `getPackages()` method
+
+- Add `import com.criticalblue.reactnative.CertPinnerPackage;` to the imports at the top of the file
+- Add `new CertPinnerPackage()` to the list returned by the `getPackages()` method
+
 2. Append the following lines to `android/settings.gradle`:
-  	```
-  	include ':react-native-cert-pinner'
-  	project(':react-native-cert-pinner').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-cert-pinner/android')
-  	``` 
+   ```
+   include ':react-native-cert-pinner'
+   project(':react-native-cert-pinner').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-cert-pinner/android')
+   ```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
-  	```
-      compile project(':react-native-cert-pinner')
-  	```
+   ```
+     implementation project(':react-native-cert-pinner')
+   ```
 
 ## Usage
 
@@ -94,7 +96,7 @@ This command will not overwrite an existing configuration file unless the `--for
 
 #### Lookup
 
-Next, determine which URLs you want to pin, and determine each certificate's public key hash. A convenient utility is provided by __Report URI__ at [https://report-uri.com/home/pkp_hash](https://report-uri.com/home/pkp_hash). Enter a URL to see the current chain of certificate hashes.
+Next, determine which URLs you want to pin, and determine each certificate's public key hash. A convenient utility is provided by **Report URI** at [https://report-uri.com/home/pkp_hash](https://report-uri.com/home/pkp_hash). Enter a URL to see the current chain of certificate hashes.
 
 Enter the desired public key hashes into the `pinset.json` file:
 
